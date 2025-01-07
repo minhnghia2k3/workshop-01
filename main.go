@@ -24,7 +24,7 @@ func getHealth(res http.ResponseWriter, req *http.Request) {
 	response := HealthResponse{
 		Status:  "healthy",
 		Version: "v1",
-		Name:    "Workshop 01 - Cat Gallery",
+		Name:    "AWS Workshop 01",
 	}
 
 	// Marshalling
