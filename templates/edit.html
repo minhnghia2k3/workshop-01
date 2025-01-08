@@ -17,7 +17,7 @@
 </script>
 {{end}}
 {{define "body"}}
-<form method="post" action="/articles/{{.ID}}" class="form-container">
+<form method="post" action="/articles/{{.ID}}">
   <input type="text" name="title" value="{{.Title}}">
   <textarea id="mytextarea" name="content">{{.Content}}</textarea>
   <input type="hidden" name="_method" value="PUT">

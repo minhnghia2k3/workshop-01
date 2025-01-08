@@ -6,9 +6,11 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"github.com/joho/godotenv"
 	"html/template"
 	"io"
 	"net/http"
+	"os"
 	"path/filepath"
 	"strconv"
 	"time"
@@ -38,10 +40,14 @@ func catch(err error) {
 }
 
 func main() {
+	var err error
+
+	err = godotenv.Load()
+	catch(err)
+
 	router = chi.NewRouter()
 	router.Use(middleware.Recoverer)
 
-	var err error
 	db, err = connect()
 	catch(err)
 
@@ -95,7 +101,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Configure AWS S3 session
 	sess, err := session.NewSession(&aws.Config{
-		Region: aws.String("ap-southeast-1"),
+		Region: aws.String(os.Getenv("AWS_REGION")),
 	})
 	if err != nil {
 		http.Error(w, "Failed to connect to AWS", http.StatusInternalServerError)
@@ -105,7 +111,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 	svc := s3.New(sess)
 
 	// Define the S3 bucket and key
-	bucketName := "workshop-01-bucket"
+	bucketName := os.Getenv("S3_BUCKET_NAME")
 	objectKey := fmt.Sprintf("uploads/%s", fileName)
 
 	// Upload file to S3

@@ -7,7 +7,19 @@
   {{ template "scripts" }}
 </head>
 <body>
-<nav><a href="/">Home</a></nav>
+<header>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/articles">Create Article</a></li>
+    </ul>
+  </nav>
+</header>
+
 {{ template "body" . }}
+
+<footer>
+  <p>&copy; 2025 Simple Article Web Page. All rights reserved.</p>
+</footer>
 </body>
 </html>

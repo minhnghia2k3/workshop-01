@@ -1,36 +1,51 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 auto;
 }
-
-nav {
+header {
     background-color: #333;
-    color: #fff;
-    padding: 1em;
-    text-align: center;
+    padding: 1rem;
+    margin-bottom: 2rem;
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 1em;
+nav ul {
+    list-style-type: none;
+    padding: 0;
 }
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
 
 h1 {
     color: #333;
     text-align: center;
 }
 
-div.articles{
+div.articles {
     margin: 1em auto;
     padding: 1em;
-    max-width: 1200px;
+    max-width: 80%;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+div.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 div.btn {
     margin: 1em auto;
@@ -50,12 +65,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1em;
-}
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 0 20rem;
 }
 
 input[type="text"],
@@ -66,18 +76,18 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 button {
-    margin: 0 auto;
-    padding: 1em;
-    max-width: 1200px;
-    background-color: #333;
+    display: inline-block;
+    padding: 10px 15px;
     color: #fff;
+    background-color: #333;
+    border: none;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-decoration: none;
     cursor: pointer;
+    margin: 1em auto;
+    min-width: 200px;
 }
 
 button:hover {
@@ -89,10 +99,34 @@ a {
     text-decoration: none;
 }
 
-a.btn {
-    color: #fff;
-}
-
 a:hover {
     text-decoration: underline;
+}
+
+/* Buttons */
+a.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 1em auto;
+    min-width: 200px;
+    text-align: center;
+}
+
+a.btn:hover,
+div.btn-container:hover {
+    background-color: #333;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    color: #777;
 }

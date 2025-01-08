@@ -2,12 +2,14 @@ package main
 
 import (
 	"database/sql"
+	_ "github.com/joho/godotenv/autoload"
+	"os"
 )
 
 func connect() (*sql.DB, error) {
 	var err error
-	//
-	db, err = sql.Open("mysql", "root:Admin123456@tcp(localhost:3306)/workshop_db")
+
+	db, err = sql.Open("mysql", os.Getenv("DATABASE_URL"))
 	if err != nil {
 		return nil, err
 	}
