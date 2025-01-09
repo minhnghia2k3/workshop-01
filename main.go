@@ -6,7 +6,6 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
-	"github.com/joho/godotenv"
 	"html/template"
 	"io"
 	"net/http"
@@ -41,9 +40,6 @@ func catch(err error) {
 
 func main() {
 	var err error
-
-	err = godotenv.Load()
-	catch(err)
 
 	router = chi.NewRouter()
 	router.Use(middleware.Recoverer)
